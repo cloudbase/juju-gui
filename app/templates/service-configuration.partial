@@ -36,16 +36,31 @@
         </div>
         {{>conflict-ux}}
       {{else}}
-        <label for="input-{{name}}">{{name}} ({{type}})</label>
-        <div>
-          <textarea
-            data-bind="config.{{name}}"
-            class="config-field"
-            id="input-{{name}}"
-            name="{{name}}"
-            {{#if ../../../ghost}}disabled{{/if}}
-          >{{value}}</textarea>
-        </div>
+        {{#if isPassword}}
+          <label for="input-{{name}}">{{name}} ({{type}})</label>
+          <div>
+            <input
+              class="config-field"
+              type="password"
+              name="{{name}}"
+              id="input-{{name}}"
+              value="{{value}}"
+              data-bind="config.{{name}}"
+              {{#if ../../../ghost}}disabled{{/if}}
+            />
+          </div>
+        {{else}}
+          <label for="input-{{name}}">{{name}} ({{type}})</label>
+          <div>
+            <textarea
+              data-bind="config.{{name}}"
+              class="config-field"
+              id="input-{{name}}"
+              name="{{name}}"
+              {{#if ../../../ghost}}disabled{{/if}}
+            >{{value}}</textarea>
+          </div>
+        {{/if}}
       {{/if}}
       {{>conflict-ux}}
     {{/if}}

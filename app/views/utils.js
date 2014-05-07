@@ -825,6 +825,9 @@ YUI.add('juju-view-utils', function(Y) {
         if (dataType === 'int' || dataType === 'float') {
           entry.isNumeric = true;
         }
+        else if (dataType === 'password') {
+          entry.isPassword = true;
+        }
 
         entry.value = config[field_name];
       }
